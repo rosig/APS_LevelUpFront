@@ -1,14 +1,14 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Administrador from "./views/Administrador";
 import Colaborador from "./views/Colaborador";
-import Login from "./views/Login";
+import TelaLoginUsuario from "./views/TelaLoginUsuario";
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <Login />
+          <TelaLoginUsuario />
         </Route>
         <Route exact path="/administrador">
           <Administrador />
