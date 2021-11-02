@@ -1,5 +1,12 @@
 import React from "react";
+import "./styles.scss";
+import Page from "../../components/Page";
 
 export default function Administrador() {
-  return <h1>Administrador</h1>;
+  function enviarDadosColaborador() {}
+  return (
+    <Page className="administrador">
+      <h1>Bem-vindo Administrador</h1>
+    </Page>
+  );
 }

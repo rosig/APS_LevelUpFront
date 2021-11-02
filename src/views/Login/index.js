@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles.scss";
 import { useHistory } from "react-router-dom";
+import Page from "../../components/Page";
 
 export default function Login() {
   const history = useHistory();
@@ -9,21 +10,23 @@ export default function Login() {
     history.push(`/${pageName}`);
   }
 
-  function signIn() {
-    // const
-    // userType ? goToPage("administrador") : goToPage("colaborador");
-    console.log("logou");
-  }
-
-  function handleSubmit(event) {
+  async function realizarLogin(event) {
     event.preventDefault();
-    signIn();
+
+    try {
+      const user = { type: "colaborador" };
+      user.type === "administrador"
+        ? goToPage("administrador")
+        : goToPage("colaborador");
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
-    <div className="login">
+    <Page className="login">
       <h1>Login</h1>
-      <form className="form" onSubmit={(event) => handleSubmit(event)}>
+      <form className="form" onSubmit={(event) => realizarLogin(event)}>
         <input
           className="form__email"
           type="email"
@@ -38,6 +41,6 @@ export default function Login() {
         />
         <input className="form__submit" type="submit" value="Entrar" />
       </form>
-    </div>
+    </Page>
   );
 }
