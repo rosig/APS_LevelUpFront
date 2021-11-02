@@ -1,7 +1,6 @@
 import React from "react";
 import "./styles.scss";
 import { useHistory } from "react-router-dom";
-import Page from "../../components/Page";
 
 export default function TelaLoginUsuarioControle(props) {
   const history = useHistory();
@@ -24,11 +23,23 @@ export default function TelaLoginUsuarioControle(props) {
   }
 
   return (
-    <Page className="login">
+    <div className="login">
       <h1>Login</h1>
       <form className="form" onSubmit={(event) => realizarLogin(event)}>
-        {props.children}
+      <input
+        className="form__email"
+        type="email"
+        required
+        placeholder="Email"
+      />
+      <input
+        className="form__password"
+        type="password"
+        required
+        placeholder="Senha"
+      />
+      <input className="form__submit" type="submit" value="Entrar" />
       </form>
-    </Page>
+    </div>
   );
 }
